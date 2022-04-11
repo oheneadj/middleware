@@ -1,13 +1,24 @@
 // Import Express
 const express = require('express');
 
-// Import Index Router
+// Import Routers
 const indexRouter = require('./routes/index.router');
+const authRouter = require('./routes/auth.router');
 
 const app = express();
+app.use(express.json());
 
-//Use index Router
+//Middleware
+app.use((req, res, next) => {
+    console.log('Global Middleware');
+    next();
+})
+
+//Use Routers
 app.use("/", indexRouter);
+app.use("/auth", authRouter);
+
+
 
 // Set PORT number
 const port = 4000;

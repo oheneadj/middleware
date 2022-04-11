@@ -4,10 +4,15 @@ const greet = (req, res) => {
 
 const welcome = (req, res) => {
    res.send("Welcome to my server"); 
+};
+
+const protected = (req, res) => {
+    res.send("You can see this because you have been authenticated");
 }
 
 
-module.exports ={
+module.exports = {
     greet,
-    welcome
+    welcome,
+    protected
 }
